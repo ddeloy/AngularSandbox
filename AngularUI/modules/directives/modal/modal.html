@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="plunker" >
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS Plunker</title>
+  
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="Main">
+  
+<ul>
+  <li ng-repeat="post in posts"><a ng-click="select(post)">{{post.title}}</a></li>
+</ul>  
+
+<!--
+you can make this nice encapsulated and reusable component
+this is just quickly hacked to show the idea...
+-->
+<div class="modal" ng-show="modalIsVisible">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="closeModal()">×</button>
+    <h3>Post: {{selectedPost.title}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{selectedPost.content}}</p>
+  </div>
+  <div class="modal-footer">
+    <a class="btn" ng-click="closeModal()">Close</a>
+  </div>
+</div>
+</body>
+</html>
+
